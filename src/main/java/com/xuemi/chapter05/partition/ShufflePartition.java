@@ -1,6 +1,6 @@
-package chapter05.partition;
+package com.xuemi.chapter05.partition;
 
-import chapter05.Event;
+import com.xuemi.chapter05.Event;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 

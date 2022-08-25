@@ -1,10 +1,14 @@
-package chapter05.partition;
+package com.xuemi.chapter05.partition;
 
-import chapter05.Event;
+import com.xuemi.chapter05.Event;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
-public class RescaleParttition {
+/**
+ * 轮询分区（Round-Robin算法实现）：按照顺序依次向下游 taskSlot 均匀 的分发数据，
+ * 调用rebalance()来轮询分区
+ */
+public class RebalanceOfRound_Robin {
 
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -19,7 +23,8 @@ public class RescaleParttition {
                 new Event("Tom", "/home/product/suite", 2000L),
                 new Event("Jack", "/home/game/cjml", 2000L));
 
-        source.
+        // 经轮询重分区后打印输出，并行度为 4
+        source.rebalance().print("rebalance").setParallelism(4);
 
         env.execute();
     }

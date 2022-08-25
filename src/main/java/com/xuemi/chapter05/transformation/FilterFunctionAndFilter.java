@@ -1,7 +1,7 @@
-package chapter05.transformation;
+package com.xuemi.chapter05.transformation;
 
 
-import chapter05.Event;
+import com.xuemi.chapter05.Event;
 import org.apache.flink.api.common.functions.FilterFunction;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
