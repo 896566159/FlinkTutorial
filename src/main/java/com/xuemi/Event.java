@@ -1,4 +1,4 @@
-package com.xuemi.chapter05;
+package com.xuemi;
 
 import java.sql.Timestamp;
 

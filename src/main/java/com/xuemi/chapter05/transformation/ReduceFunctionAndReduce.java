@@ -1,6 +1,6 @@
 package com.xuemi.chapter05.transformation;
 
-import com.xuemi.chapter05.Event;
+import com.xuemi.Event;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.common.typeinfo.Types;

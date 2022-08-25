@@ -13,6 +13,7 @@
         <maven.compiler.target>8</maven.compiler.target>
         <flink.version>1.13.0</flink.version>
         <java.version>1.8</java.version>
+        <hbase.version>2.4.8</hbase.version>
         <scala.binary.version>2.12</scala.binary.version>
         <slf4j.version>1.7.30</slf4j.version>
     </properties>
@@ -50,11 +51,52 @@
             <artifactId>log4j-to-slf4j</artifactId>
             <version>2.14.0</version>
         </dependency>
+
+        <!-- 这是 kafka相关的依赖 -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-kafka_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <!-- 这是 Redis相关的依赖 -->
+        <dependency>
+            <groupId>org.apache.bahir</groupId>
+            <artifactId>flink-connector-redis_2.11</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!--添加 Elasticsearch 连接器依赖-->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-elasticsearch7_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <!-- 添加 MySQL 连接器依赖-->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-jdbc_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
+        </dependency>
+
+        <!-- 添加 HBase 连接器依赖-->
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-client</artifactId>
+            <version>${hbase.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
+                <!-- 这是项目打包时的依赖，引入该依赖后可以选择打包的时候自由选择项目中的依赖进入jar包 -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.0.0</version>
